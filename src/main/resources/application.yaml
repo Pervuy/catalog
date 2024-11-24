@@ -1,0 +1,34 @@
+
+DB_URL:
+DB_USER:
+DB_PASSWORD:
+
+server:
+  port: 5000
+
+spring:
+  profiles:
+    active: prod
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      
