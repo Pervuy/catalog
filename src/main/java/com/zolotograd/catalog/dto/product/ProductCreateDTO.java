@@ -8,4 +8,6 @@ import lombok.Setter;
 @Setter
 @Builder(toBuilder = true)
 public class ProductCreateDTO {
+
+  private String article;
 }
