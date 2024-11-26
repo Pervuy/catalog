@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder(toBuilder = true)
-public class ProductCreateDTO {
+public class ProductCreateDto {
 
   private String article;
 }

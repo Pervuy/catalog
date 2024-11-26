@@ -1,11 +1,16 @@
 package com.zolotograd.catalog.controller;
 
-import com.zolotograd.catalog.dto.product.ProductCreateDTO;
-import com.zolotograd.catalog.dto.product.ProductResponseDTO;
+import com.zolotograd.catalog.dto.product.ProductCreateDto;
+import com.zolotograd.catalog.dto.product.ProductResponseDto;
 import com.zolotograd.catalog.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -17,19 +22,19 @@ public class ProductController {
   private final ProductService productService;
 
   @GetMapping("all")
-  public ResponseEntity<List<ProductResponseDTO>> getAllPosts(
+  public ResponseEntity<List<ProductResponseDto>> getAllPosts(
           @RequestParam(value = "page", defaultValue = "0") Integer page,
           @RequestParam(value = "size", defaultValue = "10") Integer size) {
 
-    List<ProductResponseDTO> allPosts = productService.getAllPosts(page, size);
+    List<ProductResponseDto> allPosts = productService.getAllPosts(page, size);
 
     return ResponseEntity.ok(allPosts);
   }
 
   @PostMapping("create")
-  public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductCreateDTO productCreateDTO) {
+  public ResponseEntity<ProductResponseDto> createProduct(@RequestBody ProductCreateDto productCreateDto) {
 
-    ProductResponseDTO product = productService.createProduct(productCreateDTO);
+    ProductResponseDto product = productService.createProduct(productCreateDto);
 
     return ResponseEntity.ok(product);
   }
