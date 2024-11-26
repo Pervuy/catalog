@@ -67,7 +67,7 @@ public class ProductControllerTest {
     String responseJson = mvcResult.getResponse().getContentAsString();
     ProductResponseDto productResponseDTO = objectMapper.readValue(responseJson, ProductResponseDto.class);
 
-    assertEquals("110333", productResponseDTO.getArticle());
+    assertEquals("1103335", productResponseDTO.getArticle());
 
   }
 }
