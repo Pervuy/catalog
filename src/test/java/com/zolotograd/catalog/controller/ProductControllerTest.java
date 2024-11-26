@@ -42,11 +42,11 @@ public class ProductControllerTest {
   public void setUp() {
     productResponseDTO1 = ProductResponseDto
             .builder()
-            .article("110333")
+            .article("1103335")
             .build();
 
     productCreateDTO1 = ProductCreateDto.builder()
-            .article("110333")
+            .article("1103335")
             .build();
   }
 
