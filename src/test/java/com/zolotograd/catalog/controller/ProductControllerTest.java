@@ -1,8 +1,8 @@
 package com.zolotograd.catalog.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zolotograd.catalog.dto.product.ProductCreateDTO;
-import com.zolotograd.catalog.dto.product.ProductResponseDTO;
+import com.zolotograd.catalog.dto.product.ProductCreateDto;
+import com.zolotograd.catalog.dto.product.ProductResponseDto;
 import com.zolotograd.catalog.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,18 +35,18 @@ public class ProductControllerTest {
   @MockitoBean
   private ProductService productService;
 
-  private ProductResponseDTO productResponseDTO1;
-  private ProductCreateDTO productCreateDTO1;
+  private ProductResponseDto productResponseDTO1;
+  private ProductCreateDto productCreateDTO1;
 
   @BeforeEach
   public void setUp() {
-    productResponseDTO1 = ProductResponseDTO
+    productResponseDTO1 = ProductResponseDto
             .builder()
-            .article("110333")
+            .article("1103335")
             .build();
 
-    productCreateDTO1 = ProductCreateDTO.builder()
-            .article("110333")
+    productCreateDTO1 = ProductCreateDto.builder()
+            .article("1103335")
             .build();
   }
 
@@ -54,7 +54,7 @@ public class ProductControllerTest {
   public void testCreateProduct() throws Exception {
 
 
-    Mockito.when(productService.createProduct(any(ProductCreateDTO.class))).thenReturn(productResponseDTO1);
+    Mockito.when(productService.createProduct(any(ProductCreateDto.class))).thenReturn(productResponseDTO1);
 
     MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
                     .post("/api/v1/products/create")
@@ -65,9 +65,9 @@ public class ProductControllerTest {
             .andReturn();
 
     String responseJson = mvcResult.getResponse().getContentAsString();
-    ProductResponseDTO productResponseDTO = objectMapper.readValue(responseJson, ProductResponseDTO.class);
+    ProductResponseDto productResponseDTO = objectMapper.readValue(responseJson, ProductResponseDto.class);
 
-    assertEquals("110333", productResponseDTO.getArticle());
+    assertEquals("1103335", productResponseDTO.getArticle());
 
   }
 }

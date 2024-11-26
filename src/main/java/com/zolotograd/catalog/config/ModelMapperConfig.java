@@ -1,7 +1,7 @@
 package com.zolotograd.catalog.config;
 
-import com.zolotograd.catalog.dto.product.ProductCreateDTO;
-import com.zolotograd.catalog.dto.product.ProductResponseDTO;
+import com.zolotograd.catalog.dto.product.ProductCreateDto;
+import com.zolotograd.catalog.dto.product.ProductResponseDto;
 import com.zolotograd.catalog.entity.Product;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -16,8 +16,8 @@ public class ModelMapperConfig {
     ModelMapper modelMapper = new ModelMapper();
     modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-    modelMapper.createTypeMap(Product.class, ProductResponseDTO.class);
-    modelMapper.createTypeMap(ProductCreateDTO.class, Product.class);
+    modelMapper.createTypeMap(Product.class, ProductResponseDto.class);
+    modelMapper.createTypeMap(ProductCreateDto.class, Product.class);
 
     return modelMapper;
   }
