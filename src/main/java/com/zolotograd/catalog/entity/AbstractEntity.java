@@ -1,6 +1,9 @@
 package com.zolotograd.catalog.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;

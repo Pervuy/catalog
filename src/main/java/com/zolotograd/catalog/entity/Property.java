@@ -1,11 +1,12 @@
 package com.zolotograd.catalog.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.SelectBeforeUpdate;
 
 
 import java.util.Objects;
@@ -18,6 +19,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Property extends AbstractEntity{
   private String nameProperty;
+
   @Override
   public boolean equals(Object obj) {
     if (this == obj) {

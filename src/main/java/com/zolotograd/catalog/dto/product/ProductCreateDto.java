@@ -8,7 +8,8 @@ import java.util.UUID;
 
 @Getter
 @Setter
-//@Builder(toBuilder = true) // используя билдер нельзя передать значения по умолчанию description = ""; оно будет description = null;
+//@Builder(toBuilder = true) // используя билдер нельзя передать
+// значения по умолчанию description = ""; оно будет description = null;
 public class ProductCreateDto {
 
   @NotNull

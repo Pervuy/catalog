@@ -47,18 +47,24 @@ public class PropertyService {
 
   }
 
-  private Optional<Property> findByIdOuter(Property property){
-    return propertyRepository.findByIdOuter(property.getIdOuter());
-  }
-  private Property saveOrUpdate(Property property){
+
+
+  private Property saveOrUpdate(Property property) {
     return findByIdOuter(property)
             .orElseGet(() -> propertyRepository.save(property));
   }
-  private Optional<PropertyValue> findByIdOuter(PropertyValue propertyValue){
-    return valueRepository.findByIdOuter(propertyValue.getIdOuter());
-  }
-  private PropertyValue saveOrUpdate(PropertyValue propertyValue){
+
+  private PropertyValue saveOrUpdate(PropertyValue propertyValue) {
     return findByIdOuter(propertyValue)
             .orElseGet(() -> valueRepository.save(propertyValue));
   }
+
+  private Optional<Property> findByIdOuter(Property property) {
+    return propertyRepository.findByIdOuter(property.getIdOuter());
+  }
+
+  private Optional<PropertyValue> findByIdOuter(PropertyValue propertyValue) {
+    return valueRepository.findByIdOuter(propertyValue.getIdOuter());
+  }
+
 }
