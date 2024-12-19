@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -40,14 +42,14 @@ public class ProductControllerTest {
 
   @BeforeEach
   public void setUp() {
-    productResponseDTO1 = ProductResponseDto
-            .builder()
-            .article("1103335")
-            .build();
+    productResponseDTO1 = new ProductResponseDto();
+    productResponseDTO1.setArticle("1103335");
 
-    productCreateDTO1 = ProductCreateDto.builder()
-            .article("1103335")
-            .build();
+
+    productCreateDTO1 = new ProductCreateDto();
+    productCreateDTO1.setArticle("1103335");
+    productCreateDTO1.setId(UUID.fromString("78ac3564-797a-4327-ae8a-52faf6694f58"));
+
   }
 
   @Test

@@ -3,6 +3,7 @@ package com.zolotograd.catalog.controller;
 import com.zolotograd.catalog.dto.product.ProductCreateDto;
 import com.zolotograd.catalog.dto.product.ProductResponseDto;
 import com.zolotograd.catalog.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +33,7 @@ public class ProductController {
   }
 
   @PostMapping("create")
-  public ResponseEntity<ProductResponseDto> createProduct(@RequestBody ProductCreateDto productCreateDto) {
+  public ResponseEntity<ProductResponseDto> createProduct(@Valid @RequestBody ProductCreateDto productCreateDto) {
 
     ProductResponseDto product = productService.createProduct(productCreateDto);
 

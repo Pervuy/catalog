@@ -1,18 +1,18 @@
-package com.zolotograd.catalog.dto.product;
+package com.zolotograd.catalog.dto.property;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.util.UUID;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductResponseDto {
+public class PropertyValueCreateDto {
 
-  private String article;
-  private UUID id;
+  private List<ValueDto> data;
+
 }
